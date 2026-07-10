@@ -1,0 +1,12 @@
+[Unit]
+Description=Node Express App (node-app)
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/opt/multi-stack-deployment-lab/node-app
+ExecStart=/usr/bin/node server.js
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

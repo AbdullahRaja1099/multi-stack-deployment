@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn Flask App (python-app)
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/opt/multi-stack-deployment-lab/python-app
+ExecStart=/opt/multi-stack-deployment-lab/python-app/venv/bin/gunicorn --workers 2 --bind 127.0.0.1:5000 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
